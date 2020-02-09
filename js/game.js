@@ -151,7 +151,6 @@ function destroyPlayer() {
     audio.play();
     loop = null;
     document.getElementById("player").outerHTML = "";
-    document.getElementById("mechants").outerHTML = "";
     document.querySelector(".game-over").style.display = "block";
     document.getElementById("félicitation").outerHTML = "";
 }
@@ -198,13 +197,15 @@ document.onkeydown = function (e) {
     } else if (e.keyCode === 32) {
         if (isAttacking === false) {
             isAttacking = true;
-            const audio = new Audio("sound/sfx-laser1.ogg");
-            audio.play();
             lasers.push({
                 left: hero.left + 2.5,
                 top: hero.top
             });
             waitForNextAttack();
+        }
+        if (vies > 0) {
+            const audio = new Audio("sound/sfx-laser1.ogg");
+            audio.play();
         }
     }
 };
@@ -330,8 +331,8 @@ function destroyLasersmech() {
 
     lasersmechs.forEach(function (lasermech, index) {
         let test = lasersmechs[index].top;
-        if (test >= hero.top) {
-            
+        if (test >= hero.top + 50) {
+
             document.getElementById(`laserme-${lasersmechs[index].id}`).remove()
             lasersmechs.splice(index, 1)
 
@@ -358,10 +359,10 @@ const intervalInvulnerability = () => {
 function collisionmech() {
     for (var x = 0; x < lasersmechs.length; x++) {
         if (
-            lasersmechs[x].top >= hero.top + 15 &&
-            lasersmechs[x].top <= hero.top &&
-            lasersmechs[x].left >= hero.left &&
-            lasersmechs[x].left <= hero.left + 50
+            lasersmechs[x].top + 10 >= hero.top  &&
+            lasersmechs[x].top - 20 <= hero.top  &&
+            lasersmechs[x].left + 40>= hero.left  &&
+            lasersmechs[x].left - 10 <= hero.left
         ) {
             if (isInvulnerable === false) {
                 isInvulnerable = true;
