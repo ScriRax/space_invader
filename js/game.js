@@ -361,7 +361,7 @@ function collisionmech() {
         if (
             lasersmechs[x].top + 10 >= hero.top  &&
             lasersmechs[x].top - 20 <= hero.top  &&
-            lasersmechs[x].left + 40>= hero.left  &&
+            lasersmechs[x].left + 40 >= hero.left  &&
             lasersmechs[x].left - 10 <= hero.left
         ) {
             if (isInvulnerable === false) {
