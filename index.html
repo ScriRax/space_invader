@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Game</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+  <div class="wrap">
+    <header>Space Invader
+      <div class="timer"> <p class="timercount">00:00</p> <p class="score">Score : 00</p> <p class="vies">Vies : 3</p> </div>
+    </header>
+    <div class="game-wrapper">
+      <div class="game">
+        <img id="player" class="player" src="img/player-red-1.png">
+        <div id="laser">
+        <div class="laser"></div>
+        </div>
+        <div id="lasersmech">
+          </div>
+          <div id="bosss">
+            <div class="bosss"></div>
+            </div>
+        <div id="mechants">
+        <div class="mechants"></div>
+        </div>
+      </div>
+      <div class="félicitation">
+        <h1>Félicitation !</h1>
+        <h2>Vous avez gagné la partie</h2>
+        <button class="btn" onclick="window.location.reload()">Recommencer</button>
+      </div>
+      <div class="game-over">
+        <h1>GAME OVER</h1>
+        <h2>Vous avez perdu</h2>
+        <button class="btn" onclick="window.location.reload()">Recommencer</button>
+      </div>
+    </div>
+    <footer>Flèche gauche et droite pour se déplacer / Espace pour tirer <br> Touchez deux fois les ennemis orange</footer>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+
+</html>
